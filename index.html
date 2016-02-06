@@ -69,7 +69,8 @@
             <div class="col-lg-5">
                 <h3>Result:</h3>
                 
-                <pre>{{ response }}</pre>
+                <pre ng-show="response !== null">{{ response }}</pre>
+                <span class="label label-warning" ng-show="response === null">HTTP Response will be here</span>
                 
             </div>
         </div>

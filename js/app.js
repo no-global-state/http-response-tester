@@ -7,6 +7,9 @@ app.controller('bootstrapCtrl', function($scope, $http, maxAllowedParamCount){
     $scope.response = null;
     $scope.parameters = [];
     
+    // Define default verb method
+    $scope.method = 'POST';
+    
     $scope.isLimitExceeded = function(){
         return $scope.parameters.length >= maxAllowedParamCount;
     }
@@ -35,7 +38,7 @@ app.controller('bootstrapCtrl', function($scope, $http, maxAllowedParamCount){
         // Send a request
         $http({
             method : 'POST',
-            url : '/test.php',
+            url : '/controller.php',
             data : $.param(data),
             headers : {
                 'Content-Type': 'application/x-www-form-urlencoded'
