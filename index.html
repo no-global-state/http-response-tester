@@ -15,7 +15,7 @@
             <div class="form-group">
               <label for="inputUrl" class="col-lg-2 control-label">URL</label>
               <div class="col-lg-10">
-                <input type="url" class="form-control" id="inputUrl" placeholder="Type the URL" />
+                <input type="url" class="form-control" ng-model="url" id="inputUrl" placeholder="Type the URL" />
               </div>
             </div>
             
@@ -24,12 +24,12 @@
               <div class="col-lg-10">
                 <div class="radio">
                   <label>
-                    <input type="radio" name="method" value="POST" checked /> POST
+                    <input type="radio" ng-model="method" value="POST" checked /> POST
                   </label>
                 </div>
                 <div class="radio">
                   <label>
-                    <input type="radio" name="method" value="GET" /> GET
+                    <input type="radio" ng-model="method" value="GET" /> GET
                   </label>
                 </div>
               </div>

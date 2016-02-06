@@ -1,7 +1,7 @@
 
 var app = angular.module('tester', []);
 
-app.controller('bootstrapCtrl', function($scope){
+app.controller('bootstrapCtrl', function($scope, $http){
     $scope.parameters = [];
     
     $scope.addParameter = function(){
@@ -11,6 +11,19 @@ app.controller('bootstrapCtrl', function($scope){
     
     $scope.sendRequest = function(){
         // Sending a request here
+        $http({
+            
+            method : $scope.method,
+            url : $scope.url,
+            data : $("form").serialize(),
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded' 
+            }
+            
+        }).success(function(data){
+            
+            console.log(data);
+        });
     }
     
 });
