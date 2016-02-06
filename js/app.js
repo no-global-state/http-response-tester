@@ -25,17 +25,23 @@ app.controller('bootstrapCtrl', function($scope, $http, maxAllowedParamCount){
     $scope.sendRequest = function(){
         var data = $.param($scope.parameters);
 
-        // Sending a request here
+        // Send a request
         $http({
             method : $scope.method,
             url : $scope.url,
             data : data,
             headers : {
-                'Content-Type': 'application/x-www-form-urlencoded' 
+                'Content-Type': 'application/x-www-form-urlencoded'
             }
             
-        }).success(function(data){
-            $scope.response = data;
+        }).then(function successCallback(response){
+            $scope.response = response.data;
+            
+        }, function errorCallback(response){
+            var message = response.status + ' : ' + response.statusText;
+            
+            // Temporary
+            console.log(message);
         });
     }
     
