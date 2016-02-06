@@ -12,6 +12,10 @@ app.controller('bootstrapCtrl', function($scope, $http){
         });
     }
     
+    $scope.removeParameter = function(index){
+        $scope.parameters.splice(index, 1);
+    }
+
     $scope.sendRequest = function(){
         var data = $.param($scope.parameters);
 
