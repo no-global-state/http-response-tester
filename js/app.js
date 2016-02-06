@@ -23,13 +23,20 @@ app.controller('bootstrapCtrl', function($scope, $http, maxAllowedParamCount){
     }
 
     $scope.sendRequest = function(){
-        var data = $.param($scope.parameters);
+        // Build data container
+        var data = {
+            config: {
+                url: $scope.url,
+                method: $scope.method
+            },
+            parameters: $scope.parameters
+        };
 
         // Send a request
         $http({
-            method : $scope.method,
-            url : $scope.url,
-            data : data,
+            method : 'POST',
+            url : '/test.php',
+            data : $.param(data),
             headers : {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
