@@ -5,12 +5,13 @@
   <title>HTTP Response tester</title>
   
   <link href="http://bootswatch.com/flatly/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row" ng-controller="bootstrapCtrl">
-            <div class="col-lg-8">
+            <div class="col-lg-7">
                 <form class="form-horizontal">
                   <fieldset>
                     <legend>HTTP Response tester</legend>
@@ -26,7 +27,7 @@
                       <div class="col-lg-10">
                         <div class="radio">
                           <label>
-                            <input type="radio" ng-model="method" value="POST" checked /> POST
+                            <input type="radio" ng-model="method" value="POST" /> POST
                           </label>
                         </div>
                         <div class="radio">
@@ -65,7 +66,8 @@
                 </form>
             </div>
             
-            <div class="col-lg-3">
+            <div class="col-lg-5">
+                <h3>Result:</h3>
                 
                 <pre>{{ response }}</pre>
                 
