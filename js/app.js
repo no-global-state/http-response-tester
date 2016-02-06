@@ -1,11 +1,17 @@
 
 var app = angular.module('tester', []);
 
-app.controller('bootstrapCtrl', function($scope, $http){
+app.constant('maxAllowedParamCount', 5);
+
+app.controller('bootstrapCtrl', function($scope, $http, maxAllowedParamCount){
+    $scope.response = null;
     $scope.parameters = [];
+    
+    $scope.isLimitExceeded = function(){
+        return $scope.parameters.length >= maxAllowedParamCount;
+    }
 
     $scope.addParameter = function(){
-        // Append empty object
         $scope.parameters.push({
             name: null,
             value: null
@@ -29,7 +35,7 @@ app.controller('bootstrapCtrl', function($scope, $http){
             }
             
         }).success(function(data){
-            console.log(data);
+            $scope.response = data;
         });
     }
     
